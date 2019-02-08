@@ -25,8 +25,8 @@ class TrainServicer(nb_pb2_grpc.TrainServicer):
                                  ' xtrain data:' + request.xtrain + ' ytrain data' + request.ytrain)
 
 
-def predict_class():
-    predicted_class = classifier.predict()
+def predict_class(y_test):
+    predicted_class = classifier.predict(y_test)
     print('Class predicted', predicted_class)
     return predicted_class
 
@@ -36,7 +36,7 @@ class PredictServicer(nb_pb2_grpc.PredictServicer):
         pass
 
     def Predictor(self, request, context):
-        predicted_class = predict_class()
+        predicted_class = predict_class(request.ytest)
         return nb_pb2.PredictReply(message='Predicted class for input' + request.ytest + 'is' + str(predicted_class))
 
 

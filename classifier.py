@@ -29,6 +29,8 @@ def train_nb(x_train=None, y_train=None):
 
 def predict(y_test=[2, 2, 0, 0]):
     '''Takes a list as input'''
+    print('Y test', y_test)
+    y_test = eval(y_test)
     loaded_gnb_model = pickle.load(open(MODEL_FILE_NAME, 'rb'))
     y_test = np.array([y_test])
     predicted_value = loaded_gnb_model.predict(y_test)
@@ -47,5 +49,5 @@ def load_data(data_file='data.csv'):
     return x_train, y_train
 
 
-train_nb()
-predict(y_test=[2, 2, 0, 0])
+#train_nb()
+#predict(y_test=[2, 2, 0, 0])
