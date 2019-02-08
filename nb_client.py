@@ -6,7 +6,7 @@ import numpy as np
 
 def nb_train_classifier_fn(stub):
     response = stub.TrainClassifier(
-        nb_pb2.TrainRequest(xtrain='[2, 1, 1, 0, 1, 1, 2]'))
+        nb_pb2.TrainRequest(xtrain='[2, 1, 1, 0, 1, 1, 2]', ytrain='[1]'))
     print('Response from server ->', response.message)
 
 

@@ -20,7 +20,8 @@ class TrainServicer(nb_pb2_grpc.TrainServicer):
         pass
 
     def TrainClassifier(self, request, context):
-        return nb_pb2.TrainReply(message='Classifier trained with data:' + request.xtrain)
+        return nb_pb2.TrainReply(message='Classifier trained with '
+                                 ' xtrain data:' + request.xtrain + ' ytrain data' + request.ytrain)
 
 
 def serve():
