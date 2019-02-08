@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package nbclassifier;
+
+message Train{
+	required string xtrain = 1;
+	required string ytrain = 2;
+}
+
+message Predict{
+	required string ytest = 1;
+}
