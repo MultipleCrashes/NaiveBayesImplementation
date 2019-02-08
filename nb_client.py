@@ -5,7 +5,9 @@ import numpy as np
 
 
 def nb_train_classifier_fn(stub):
-    stub.TrainClassifier(nb_pb2.TrainRequest(xtrain='[2, 1, 1, 0, 1, 1, 2]'))
+    response = stub.TrainClassifier(
+        nb_pb2.TrainRequest(xtrain='[2, 1, 1, 0, 1, 1, 2]'))
+    print('Response from server ->', response.message)
 
 
 def run():

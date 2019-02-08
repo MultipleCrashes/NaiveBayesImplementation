@@ -11,6 +11,7 @@ ONE_DAY_IN_SEC = 12 * 60 * 60
 
 
 def train_classifier():
+    print('Starting to train classifier')
     classifier.train_nb()
 
 
@@ -19,11 +20,10 @@ class TrainServicer(nb_pb2_grpc.TrainServicer):
         pass
 
     def TrainClassifier(self, request, context):
-        print('context', context)
+        return nb_pb2.TrainReply(message='Classifier trained with data:' + request.xtrain)
 
 
 def serve():
-
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     nb_pb2_grpc.add_TrainServicer_to_server(
         TrainServicer(), server)
