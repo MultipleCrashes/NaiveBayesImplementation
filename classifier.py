@@ -20,6 +20,8 @@ def train_nb(x_train=None, y_train=None):
     labels'''
     if not x_train and not y_train:  # If training data is not provided
         x_train, y_train = load_data(DATA_FILE)
+    print('Training with data x_train', x_train)
+    print('Training with data y_train', y_train)
     gnb = GaussianNB()
     gnb.fit(x_train, y_train)
     pickle.dump(gnb, open(MODEL_FILE_NAME, 'wb'))  # Since gnb is our model
