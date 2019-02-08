@@ -18,7 +18,7 @@ class TrainStub(object):
         '/nbclassifier.Train/TrainClassifier',
         request_serializer=nb__pb2.TrainRequest.SerializeToString,
         response_deserializer=nb__pb2.TrainReply.FromString,
-        )
+    )
 
 
 class TrainServicer(object):
@@ -60,7 +60,7 @@ class PredictStub(object):
         '/nbclassifier.Predict/Predictor',
         request_serializer=nb__pb2.PredictRequest.SerializeToString,
         response_deserializer=nb__pb2.PredictReply.FromString,
-        )
+    )
 
 
 class PredictServicer(object):

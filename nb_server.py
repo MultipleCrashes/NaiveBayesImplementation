@@ -4,8 +4,14 @@ from concurrent import futures
 import logging
 import grpc
 import time
+from classifier import *
+import classifier
 
 ONE_DAY_IN_SEC = 12 * 60 * 60
+
+
+def train_classifier():
+    classifier.train_nb()
 
 
 class TrainServicer(nb_pb2_grpc.TrainServicer):
