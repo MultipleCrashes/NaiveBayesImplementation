@@ -19,7 +19,11 @@ def train_nb(x_train=None, y_train=None):
     x_train is the list of string y_train ss the set of
     labels'''
     if not x_train and not y_train:  # If training data is not provided
+        print('X train & y train not provided as input')
         x_train, y_train = load_data(DATA_FILE)
+    else:
+        y_train = eval(y_train)
+        y_train = y_train.reshape(1, -1)
     print('Training with data x_train', x_train)
     print('Training with data y_train', y_train)
     gnb = GaussianNB()
@@ -49,5 +53,5 @@ def load_data(data_file='data.csv'):
     return x_train, y_train
 
 
-#train_nb()
+# train_nb()
 #predict(y_test=[2, 2, 0, 0])

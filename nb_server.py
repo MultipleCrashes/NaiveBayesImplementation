@@ -10,9 +10,9 @@ import classifier
 ONE_DAY_IN_SEC = 12 * 60 * 60
 
 
-def train_classifier():
+def train_classifier(xtrain, ytrain):
     print('Starting to train classifier')
-    classifier.train_nb()
+    classifier.train_nb(xtrain, ytrain)
 
 
 class TrainServicer(nb_pb2_grpc.TrainServicer):
@@ -20,7 +20,8 @@ class TrainServicer(nb_pb2_grpc.TrainServicer):
         pass
 
     def TrainClassifier(self, request, context):
-        train_classifier()
+        train_classifier(request.xtrain, request.ytrain
+                         )
         return nb_pb2.TrainReply(message='Classifier trained with '
                                  ' xtrain data:' + request.xtrain + ' ytrain data' + request.ytrain)
 
