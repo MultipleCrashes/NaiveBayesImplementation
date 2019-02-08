@@ -33,6 +33,7 @@ def predict(y_test=[2, 2, 0, 0]):
     y_test = np.array([y_test])
     predicted_value = loaded_gnb_model.predict(y_test)
     print('Predicted value', predicted_value)
+    return predicted_value
 
 
 def load_data(data_file='data.csv'):
