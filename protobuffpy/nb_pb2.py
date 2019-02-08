@@ -7,7 +7,6 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
@@ -18,98 +17,225 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='nb.proto',
   package='nbclassifier',
-  syntax='proto2',
-  serialized_pb=_b('\n\x08nb.proto\x12\x0cnbclassifier\"\'\n\x05Train\x12\x0e\n\x06xtrain\x18\x01 \x02(\t\x12\x0e\n\x06ytrain\x18\x02 \x02(\t\"\x18\n\x07Predict\x12\r\n\x05ytest\x18\x01 \x02(\t')
+  syntax='proto3',
+  serialized_options=None,
+  serialized_pb=_b('\n\x08nb.proto\x12\x0cnbclassifier\".\n\x0cTrainRequest\x12\x0e\n\x06xtrain\x18\x01 \x01(\t\x12\x0e\n\x06ytrain\x18\x02 \x01(\t\"\x1d\n\nTrainReply\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1f\n\x0ePredictRequest\x12\r\n\x05ytest\x18\x01 \x01(\t\"\x1f\n\x0cPredictReply\x12\x0f\n\x07message\x18\x01 \x01(\t2P\n\x05Train\x12G\n\x0fTrainClassifier\x12\x1a.nbclassifier.TrainRequest\x1a\x18.nbclassifier.TrainReply2P\n\x07Predict\x12\x45\n\tPredictor\x12\x1c.nbclassifier.PredictRequest\x1a\x1a.nbclassifier.PredictReplyb\x06proto3')
 )
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
 
-_TRAIN = _descriptor.Descriptor(
-  name='Train',
-  full_name='nbclassifier.Train',
+_TRAINREQUEST = _descriptor.Descriptor(
+  name='TrainRequest',
+  full_name='nbclassifier.TrainRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='xtrain', full_name='nbclassifier.Train.xtrain', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      name='xtrain', full_name='nbclassifier.TrainRequest.xtrain', index=0,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ytrain', full_name='nbclassifier.Train.ytrain', index=1,
-      number=2, type=9, cpp_type=9, label=2,
+      name='ytrain', full_name='nbclassifier.TrainRequest.ytrain', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=26,
-  serialized_end=65,
+  serialized_end=72,
 )
 
 
-_PREDICT = _descriptor.Descriptor(
-  name='Predict',
-  full_name='nbclassifier.Predict',
+_TRAINREPLY = _descriptor.Descriptor(
+  name='TrainReply',
+  full_name='nbclassifier.TrainReply',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ytest', full_name='nbclassifier.Predict.ytest', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      name='message', full_name='nbclassifier.TrainReply.message', index=0,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=67,
-  serialized_end=91,
+  serialized_start=74,
+  serialized_end=103,
 )
 
-DESCRIPTOR.message_types_by_name['Train'] = _TRAIN
-DESCRIPTOR.message_types_by_name['Predict'] = _PREDICT
 
-Train = _reflection.GeneratedProtocolMessageType('Train', (_message.Message,), dict(
-  DESCRIPTOR = _TRAIN,
+_PREDICTREQUEST = _descriptor.Descriptor(
+  name='PredictRequest',
+  full_name='nbclassifier.PredictRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ytest', full_name='nbclassifier.PredictRequest.ytest', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=105,
+  serialized_end=136,
+)
+
+
+_PREDICTREPLY = _descriptor.Descriptor(
+  name='PredictReply',
+  full_name='nbclassifier.PredictReply',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='message', full_name='nbclassifier.PredictReply.message', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=138,
+  serialized_end=169,
+)
+
+DESCRIPTOR.message_types_by_name['TrainRequest'] = _TRAINREQUEST
+DESCRIPTOR.message_types_by_name['TrainReply'] = _TRAINREPLY
+DESCRIPTOR.message_types_by_name['PredictRequest'] = _PREDICTREQUEST
+DESCRIPTOR.message_types_by_name['PredictReply'] = _PREDICTREPLY
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+TrainRequest = _reflection.GeneratedProtocolMessageType('TrainRequest', (_message.Message,), dict(
+  DESCRIPTOR = _TRAINREQUEST,
   __module__ = 'nb_pb2'
-  # @@protoc_insertion_point(class_scope:nbclassifier.Train)
+  # @@protoc_insertion_point(class_scope:nbclassifier.TrainRequest)
   ))
-_sym_db.RegisterMessage(Train)
+_sym_db.RegisterMessage(TrainRequest)
 
-Predict = _reflection.GeneratedProtocolMessageType('Predict', (_message.Message,), dict(
-  DESCRIPTOR = _PREDICT,
+TrainReply = _reflection.GeneratedProtocolMessageType('TrainReply', (_message.Message,), dict(
+  DESCRIPTOR = _TRAINREPLY,
   __module__ = 'nb_pb2'
-  # @@protoc_insertion_point(class_scope:nbclassifier.Predict)
+  # @@protoc_insertion_point(class_scope:nbclassifier.TrainReply)
   ))
-_sym_db.RegisterMessage(Predict)
+_sym_db.RegisterMessage(TrainReply)
 
+PredictRequest = _reflection.GeneratedProtocolMessageType('PredictRequest', (_message.Message,), dict(
+  DESCRIPTOR = _PREDICTREQUEST,
+  __module__ = 'nb_pb2'
+  # @@protoc_insertion_point(class_scope:nbclassifier.PredictRequest)
+  ))
+_sym_db.RegisterMessage(PredictRequest)
+
+PredictReply = _reflection.GeneratedProtocolMessageType('PredictReply', (_message.Message,), dict(
+  DESCRIPTOR = _PREDICTREPLY,
+  __module__ = 'nb_pb2'
+  # @@protoc_insertion_point(class_scope:nbclassifier.PredictReply)
+  ))
+_sym_db.RegisterMessage(PredictReply)
+
+
+
+_TRAIN = _descriptor.ServiceDescriptor(
+  name='Train',
+  full_name='nbclassifier.Train',
+  file=DESCRIPTOR,
+  index=0,
+  serialized_options=None,
+  serialized_start=171,
+  serialized_end=251,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='TrainClassifier',
+    full_name='nbclassifier.Train.TrainClassifier',
+    index=0,
+    containing_service=None,
+    input_type=_TRAINREQUEST,
+    output_type=_TRAINREPLY,
+    serialized_options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_TRAIN)
+
+DESCRIPTOR.services_by_name['Train'] = _TRAIN
+
+
+_PREDICT = _descriptor.ServiceDescriptor(
+  name='Predict',
+  full_name='nbclassifier.Predict',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=None,
+  serialized_start=253,
+  serialized_end=333,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Predictor',
+    full_name='nbclassifier.Predict.Predictor',
+    index=0,
+    containing_service=None,
+    input_type=_PREDICTREQUEST,
+    output_type=_PREDICTREPLY,
+    serialized_options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_PREDICT)
+
+DESCRIPTOR.services_by_name['Predict'] = _PREDICT
 
 # @@protoc_insertion_point(module_scope)

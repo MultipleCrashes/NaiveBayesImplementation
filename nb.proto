@@ -1,12 +1,32 @@
-syntax = "proto2";
+syntax = "proto3";
 
 package nbclassifier;
 
-message Train{
-	required string xtrain = 1;
-	required string ytrain = 2;
+
+
+service Train{
+	// sends a train request
+	rpc TrainClassifier (TrainRequest) returns (TrainReply);
 }
 
-message Predict{
-	required string ytest = 1;
+message TrainRequest{
+	string xtrain = 1;
+	string ytrain = 2;
+}
+
+message TrainReply{
+	string message = 1;
+}
+
+
+service Predict{
+	rpc Predictor (PredictRequest) returns (PredictReply);
+}
+
+message PredictRequest{
+	string ytest =1;
+}
+
+message PredictReply{
+	string message=1;
 }
