@@ -14,10 +14,12 @@ BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 DATA_FILE = BASE_PATH + os.sep + 'data.csv'
 
 
-def train_nb(x_train, y_train):
+def train_nb(x_train=None, y_train=None):
     '''Trains the naive bayes classifier with dataset
     x_train is the list of string y_train ss the set of
     labels'''
+    if not x_train and not y_train:  # If training data is not provided
+        x_train, y_train = load_data(DATA_FILE)
     gnb = GaussianNB()
     gnb.fit(x_train, y_train)
     pickle.dump(gnb, open(MODEL_FILE_NAME, 'wb'))  # Since gnb is our model
@@ -42,8 +44,5 @@ def load_data(data_file='data.csv'):
     return x_train, y_train
 
 
-x_train, y_train = load_data(DATA_FILE)
-
-
-train_nb(x_train, y_train)
+train_nb()
 predict(y_test=[2, 2, 0, 0])
