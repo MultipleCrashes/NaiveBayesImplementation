@@ -8,6 +8,12 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import pickle
 import os
 
+import sys
+if sys.version_info[0] < 3:
+    from StringIO import StringIO
+else:
+    from io import StringIO
+
 MODEL_FILE_NAME = 'nbclassifier.sav'
 BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -22,8 +28,9 @@ def train_nb(x_train=None, y_train=None):
         print('X train & y train not provided as input')
         x_train, y_train = load_data(DATA_FILE)
     else:
-        y_train = eval(y_train)
-        y_train = y_train.reshape(1, -1)
+        x_train, y_train = load_data(x_train)
+        #y_train = eval(y_train)
+        y_train = y_train.reshape(-1, 1)
     print('Training with data x_train', x_train)
     print('Training with data y_train', y_train)
     gnb = GaussianNB()
@@ -42,8 +49,9 @@ def predict(y_test=[2, 2, 0, 0]):
     return predicted_value
 
 
-def load_data(data_file='data.csv'):
-    df = pd.read_csv(data_file)
+def load_data(data_file=None):
+    data_file = StringIO(data_file)
+    df = pd.read_csv(data_file, sep=',')
     categorical_data = df.apply(LabelEncoder().fit_transform)
     x_train = categorical_data.iloc[:, :-1]
     y_train = categorical_data.iloc[:, -1]
