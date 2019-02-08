@@ -1,7 +1,4 @@
 from protobuffpy import nb_pb2
 
 
-class Train:
-
-
-class Predict:
+class TrainServicer(nb_pb2.TrainServicer):
